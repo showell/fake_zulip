@@ -8,9 +8,15 @@ function tamper() {
             return document.querySelector("#top_navbar");
         }
 
+        function logo() {
+            const elem =  header().querySelector("#realm-logo");
+
+            return {elem};
+        }
+
         const elem = header();
 
-        return {elem};
+        return {logo};
     }
 
     function get_app() {
@@ -47,8 +53,8 @@ function tamper() {
         return {left_sidebar, middle_panel, right_sidebar};
     }
 
-    const header = get_header();
-    style(header.elem, "background", "blanchedalmond");
+    const {logo} = get_header();
+    style(logo().elem, "background", "khaki");
 
     const {left_sidebar, middle_panel, right_sidebar} = get_app();
 
