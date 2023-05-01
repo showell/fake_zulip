@@ -5,7 +5,7 @@ function tamper() {
 
     function get_header() {
         function header() {
-            return document.querySelector(".header");
+            return document.querySelector("#top_navbar");
         }
 
         const elem = header();

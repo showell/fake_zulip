@@ -23,7 +23,7 @@ function style_sub_panel(elem) {
 }
 
 function build_header() {
-    const elem = document.querySelector(".header");
+    const elem = document.querySelector("#top_navbar");
     style(elem, "height", "5vh");
     style(elem, "display", "flex");
     style(elem, "flexDirection", "row");
