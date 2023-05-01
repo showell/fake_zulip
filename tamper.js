@@ -3,6 +3,16 @@ function tamper() {
         elem.style[f] = v;
     }
 
+    function get_header() {
+        function header() {
+            return document.querySelector(".header");
+        }
+
+        const elem = header();
+
+        return {elem};
+    }
+
     function get_app() {
         function app() {
             return document.querySelector(".app");
@@ -36,6 +46,9 @@ function tamper() {
 
         return {left_sidebar, middle_panel, right_sidebar};
     }
+
+    const header = get_header();
+    style(header.elem, "background", "blanchedalmond");
 
     const {left_sidebar, middle_panel, right_sidebar} = get_app();
 
