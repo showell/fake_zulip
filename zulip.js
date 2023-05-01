@@ -28,6 +28,17 @@ function build_header() {
     style(elem, "display", "flex");
     style(elem, "flexDirection", "row");
     style(elem, "border", "1px red solid");
+
+    function build_logo({parent}) {
+        const elem = document.createElement("div");
+        div.id = "realm-logo";
+        style_panel(elem);
+        
+        parent.append(elem);
+    }
+
+    const parent = elem;
+    build_logo({parent});
 }
 
 function build_app() {
