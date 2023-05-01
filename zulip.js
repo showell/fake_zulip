@@ -31,7 +31,7 @@ function build_header() {
 
     function build_logo({parent}) {
         const elem = document.createElement("div");
-        div.id = "realm-logo";
+        elem.id = "realm-logo";
         style_panel(elem);
         
         parent.append(elem);
