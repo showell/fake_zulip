@@ -31,7 +31,7 @@ function build_header() {
 
     function build_logo({parent}) {
         const elem = document.createElement("div");
-        elem.id = "realm-logo";
+        elem.className = "column-left";
         style_panel(elem);
         
         parent.append(elem);

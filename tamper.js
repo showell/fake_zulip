@@ -9,7 +9,7 @@ function tamper() {
         }
 
         function logo() {
-            const elem =  header().querySelector("#realm-logo");
+            const elem =  header().querySelector(".column-left");
 
             return {elem};
         }
