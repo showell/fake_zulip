@@ -1,4 +1,9 @@
-build_app();
+build_zulip();
+
+function build_zulip() {
+    build_header();
+    build_app();
+}
 
 function style(elem, f, v) {
     elem.style[f] = v;
@@ -15,6 +20,14 @@ function style_panel(elem) {
 function style_sub_panel(elem) {
     style(elem, "width", "100%");
     style(elem, "border", "1px blue solid");
+}
+
+function build_header() {
+    const elem = document.querySelector(".header");
+    style(elem, "height", "5vh");
+    style(elem, "display", "flex");
+    style(elem, "flexDirection", "row");
+    style(elem, "border", "1px red solid");
 }
 
 function build_app() {
