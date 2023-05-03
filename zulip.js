@@ -70,7 +70,11 @@ function build_app() {
             function build_dm_list_header({dm_list}) {
                 const elem = document.createElement("div");
                 elem.id = "private_messages_section_header";
-                elem.innerText = "DIRECT MESSAGES";
+
+                const h4 = document.createElement("h4");
+                h4.innerText = "DIRECT MESSAGES";
+                elem.append(h4);
+
                 dm_list.prepend(elem);
             }
             const elem = document.createElement("div");
@@ -87,7 +91,11 @@ function build_app() {
             function build_streams_list_header({streams_list}) {
                 const elem = document.createElement("div");
                 elem.id = "streams_header";
-                elem.innerText = "STREAMS LIST";
+
+                const h4 = document.createElement("h4");
+                h4.innerText = "STREAMS";
+                elem.append(h4);
+
                 streams_list.prepend(elem);
             }
 

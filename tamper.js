@@ -33,9 +33,15 @@ function get_app() {
 
         function dm_list() {
             function header() {
-                // ANNOYINGLY, the header is not part of the list.
+                function title() {
+                    const elem = lst.querySelector("h4");
+                    return { elem };
+                }
+
+                // ANNOYINGLY, the header is not part of the list, so we
+                // use parent.
                 const elem = parent.querySelector("#private_messages_section_header");
-                return { elem };
+                return { elem, title };
             }
 
             const elem = parent.querySelector("#private_messages_list");
@@ -45,8 +51,13 @@ function get_app() {
 
         function streams_list() {
             function header() {
+                function title() {
+                    const elem = lst.querySelector("h4");
+                    return { elem };
+                }
+
                 const elem = lst.querySelector("#streams_header");
-                return { elem };
+                return { elem, title };
             }
 
             const elem = parent.querySelector("#streams_list");
@@ -100,11 +111,11 @@ function tamper() {
     style(left_sidebar().shortcuts().elem, "background", "blanchedalmond");
 
     style(left_sidebar().dm_list().header().elem, "background", "cadetblue");
-    style(left_sidebar().dm_list().header().elem, "color", "red");
+    style(left_sidebar().dm_list().header().title().elem, "color", "red");
     style(left_sidebar().dm_list().elem, "background", "khaki");
 
     style(left_sidebar().streams_list().header().elem, "background", "cadetblue");
-    style(left_sidebar().streams_list().header().elem, "color", "red");
+    style(left_sidebar().streams_list().header().title().elem, "color", "red");
     style(left_sidebar().streams_list().elem, "background", "khaki");
 
     style(middle_panel().elem, "background", "khaki");
