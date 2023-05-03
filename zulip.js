@@ -37,8 +37,17 @@ function build_header() {
         parent.append(elem);
     }
 
+    function build_search_bar({parent}) {
+        const elem = document.createElement("div");
+        elem.className = "top-navbar-container";
+        style_panel(elem);
+
+        parent.append(elem);
+    }
+
     const parent = elem;
     build_logo({parent});
+    build_search_bar({parent});
 }
 
 function build_app() {

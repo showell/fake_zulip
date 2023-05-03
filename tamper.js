@@ -9,9 +9,16 @@ function get_header() {
         return {elem};
     }
 
+    function search_bar() {
+        const elem = header().querySelector(".top-navbar-container");
+        console.info(elem);
+    
+        return {elem};
+    }
+
     const elem = header();
 
-    return {logo};
+    return {logo, search_bar};
 }
 
 function get_app() {
@@ -53,8 +60,10 @@ function tamper() {
         elem.style[f] = v;
     }
 
-    const {logo} = get_header();
+    const {logo, search_bar} = get_header();
+    console.info("HERE after get_header");
     style(logo().elem, "background", "khaki");
+    style(search_bar().elem, "background", "darkseagreen");
 
     const {left_sidebar, middle_panel, right_sidebar} = get_app();
 
