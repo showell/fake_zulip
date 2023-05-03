@@ -34,7 +34,7 @@ function get_app() {
         function dm_list() {
             function header() {
                 function title() {
-                    const elem = lst.querySelector("h4");
+                    const elem = parent.querySelector("h4");
                     return { elem };
                 }
 
@@ -45,7 +45,6 @@ function get_app() {
             }
 
             const elem = parent.querySelector("#private_messages_list");
-            const lst = elem;
             return { elem, header };
         }
 
