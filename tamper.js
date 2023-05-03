@@ -100,9 +100,11 @@ function tamper() {
     style(left_sidebar().shortcuts().elem, "background", "blanchedalmond");
 
     style(left_sidebar().dm_list().header().elem, "background", "cadetblue");
+    style(left_sidebar().dm_list().header().elem, "color", "red");
     style(left_sidebar().dm_list().elem, "background", "khaki");
 
     style(left_sidebar().streams_list().header().elem, "background", "cadetblue");
+    style(left_sidebar().streams_list().header().elem, "color", "red");
     style(left_sidebar().streams_list().elem, "background", "khaki");
 
     style(middle_panel().elem, "background", "khaki");
