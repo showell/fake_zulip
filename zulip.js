@@ -68,7 +68,7 @@ function build_app() {
 
         function build_dm_list({ parent }) {
             const elem = document.createElement("div");
-            elem.className = "private_messages_container";
+            elem.id = "private_messages_list";
             elem.innerText = "dm list";
             style(elem, "height", "35%");
             style_sub_panel(elem);
@@ -105,11 +105,21 @@ function build_app() {
     }
 
     function build_middle_panel() {
+        function build_compose_box() {
+            const compose_box = document.createElement("div");
+            compose_box.id = "compose-content";
+            compose_box.innerText = "compose";
+            style_sub_panel(compose_box);
+            middle_panel.append(compose_box);
+        }
+
         const middle_panel = document.createElement("div");
         middle_panel.className = "column-middle-inner";
         middle_panel.title = "MIDDLE PANEL";
         style_panel(middle_panel);
         app.append(middle_panel);
+
+        build_compose_box();
     }
 
     function build_right_sidebar() {

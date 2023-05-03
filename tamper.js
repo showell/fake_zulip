@@ -32,13 +32,13 @@ function get_app() {
         }
 
         function dm_list() {
-            const elem = parent.querySelector(".private_messages_container");
+            const elem = parent.querySelector("#private_messages_list");
             return { elem };
         }
 
         function streams_list() {
             function header() {
-                const elem = parent.querySelector("#streams_header");
+                const elem = lst.querySelector("#streams_header");
                 return { elem };
             }
 
@@ -53,8 +53,16 @@ function get_app() {
     }
 
     function middle_panel() {
+        function compose_box() {
+            const elem = parent.querySelector("#compose-content");
+
+            return { elem };
+        }
+
         const elem = app().querySelector(".column-middle-inner");
-        return { elem };
+
+        const parent = elem;
+        return { elem, compose_box };
     }
 
     function right_sidebar() {
@@ -82,6 +90,8 @@ function tamper() {
     style(left_sidebar().streams_list().elem, "background", "blanchedalmond");
 
     style(middle_panel().elem, "background", "khaki");
+    style(middle_panel().compose_box().elem, "background", "darkseagreen");
+
     style(right_sidebar().elem, "background", "darkseagreen");
 }
 
