@@ -29,15 +29,15 @@ function build_header() {
     style(elem, "flexDirection", "row");
     style(elem, "border", "1px red solid");
 
-    function build_logo({parent}) {
+    function build_logo({ parent }) {
         const elem = document.createElement("div");
         elem.className = "column-left";
         style_panel(elem);
-        
+
         parent.append(elem);
     }
 
-    function build_search_bar({parent}) {
+    function build_search_bar({ parent }) {
         const elem = document.createElement("div");
         elem.className = "top-navbar-container";
         style_panel(elem);
@@ -46,8 +46,8 @@ function build_header() {
     }
 
     const parent = elem;
-    build_logo({parent});
-    build_search_bar({parent});
+    build_logo({ parent });
+    build_search_bar({ parent });
 }
 
 function build_app() {
@@ -57,7 +57,7 @@ function build_app() {
     style(app, "flexDirection", "row");
 
     function build_left_sidebar() {
-        function build_shortcuts({parent}) {
+        function build_shortcuts({ parent }) {
             const elem = document.createElement("div");
             elem.id = "global_filters";
             elem.innerText = "All messages + friends";
@@ -66,7 +66,7 @@ function build_app() {
             parent.append(elem);
         }
 
-        function build_streams_list({parent}) {
+        function build_streams_list({ parent }) {
             const elem = document.createElement("div");
             elem.id = "streams_list";
             elem.innerText = "streams list";
@@ -81,10 +81,9 @@ function build_app() {
         style_panel(elem);
         app.append(elem);
 
-        build_shortcuts({parent: elem});
-        build_streams_list({parent: elem});
+        build_shortcuts({ parent: elem });
+        build_streams_list({ parent: elem });
     }
-
 
     function build_middle_panel() {
         const middle_panel = document.createElement("div");

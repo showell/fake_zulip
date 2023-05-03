@@ -4,21 +4,21 @@ function get_header() {
     }
 
     function logo() {
-        const elem =  header().querySelector(".column-left");
+        const elem = header().querySelector(".column-left");
 
-        return {elem};
+        return { elem };
     }
 
     function search_bar() {
         const elem = header().querySelector(".top-navbar-container");
         console.info(elem);
-    
-        return {elem};
+
+        return { elem };
     }
 
     const elem = header();
 
-    return {logo, search_bar};
+    return { logo, search_bar };
 }
 
 function get_app() {
@@ -29,30 +29,30 @@ function get_app() {
     function left_sidebar() {
         function shortcuts() {
             const elem = parent.querySelector("#global_filters");
-            return {elem};
+            return { elem };
         }
 
         function streams_list() {
             const elem = parent.querySelector("#streams_list");
-            return {elem};
+            return { elem };
         }
 
         const elem = app().querySelector("#left-sidebar");
         const parent = elem;
-        return {elem, shortcuts, streams_list};
+        return { elem, shortcuts, streams_list };
     }
 
     function middle_panel() {
         const elem = app().querySelector(".column-middle-inner");
-        return {elem};
+        return { elem };
     }
 
     function right_sidebar() {
         const elem = app().querySelector("#right-sidebar");
-        return {elem};
+        return { elem };
     }
 
-    return {left_sidebar, middle_panel, right_sidebar};
+    return { left_sidebar, middle_panel, right_sidebar };
 }
 
 function tamper() {
@@ -60,12 +60,12 @@ function tamper() {
         elem.style[f] = v;
     }
 
-    const {logo, search_bar} = get_header();
+    const { logo, search_bar } = get_header();
     console.info("HERE after get_header");
     style(logo().elem, "background", "khaki");
     style(search_bar().elem, "background", "darkseagreen");
 
-    const {left_sidebar, middle_panel, right_sidebar} = get_app();
+    const { left_sidebar, middle_panel, right_sidebar } = get_app();
 
     style(left_sidebar().elem, "background", "aliceblue");
     style(left_sidebar().shortcuts().elem, "background", "cadetblue");
@@ -73,7 +73,6 @@ function tamper() {
 
     style(middle_panel().elem, "background", "khaki");
     style(right_sidebar().elem, "background", "darkseagreen");
-
 }
-    
+
 tamper();
