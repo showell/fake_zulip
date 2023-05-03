@@ -1,134 +1,149 @@
-function get_header() {
-    function header() {
-        return document.querySelector("#top_navbar");
-    }
+// ==UserScript==
+// @name         Zulip
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://chat.zulip.org
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=youtube.com
+// @grant        none
+// ==/UserScript==
 
-    function logo() {
-        const elem = header().querySelector(".column-left");
+(function() {
+    'use strict';
 
-        return { elem };
-    }
+    function get_header() {
+        function header() {
+            return document.querySelector("#top_navbar");
+        }
 
-    function search_bar() {
-        const elem = header().querySelector(".top-navbar-container");
+        function logo() {
+            const elem = header().querySelector(".column-left");
 
-        return { elem };
-    }
-
-    const elem = header();
-
-    return { logo, search_bar };
-}
-
-function get_app() {
-    function app() {
-        return document.querySelector(".app");
-    }
-
-    function left_sidebar() {
-        function shortcuts() {
-            const elem = parent.querySelector("#global_filters");
             return { elem };
         }
 
-        function dm_list() {
-            function header() {
-                function title() {
-                    const elem = parent.querySelector("h4");
-                    return { elem };
-                }
+        function search_bar() {
+            const elem = header().querySelector(".top-navbar-container");
 
-                // ANNOYINGLY, the header is not part of the list, so we
-                // use parent.
-                const elem = parent.querySelector("#private_messages_section_header");
-                return { elem, title };
-            }
-
-            const elem = parent.querySelector("#private_messages_list");
-            return { elem, header };
+            return { elem };
         }
 
-        function streams_list() {
-            function header() {
-                function title() {
-                    const elem = lst.querySelector("h4");
-                    return { elem };
-                }
+        const elem = header();
 
-                const elem = lst.querySelector("#streams_header");
-                return { elem, title };
-            }
-
-            const elem = parent.querySelector("#streams_list");
-            const lst = elem;
-            return { elem, header };
-        }
-
-        const elem = app().querySelector("#left-sidebar");
-        const parent = elem;
-        return { elem, shortcuts, dm_list, streams_list };
+        return { logo, search_bar };
     }
 
-    function middle_panel() {
-        function message_list() {
-            const elem = parent.querySelector("#zfilt");
+    function get_app() {
+        function app() {
+            return document.querySelector(".app");
+        }
+
+        function left_sidebar() {
+            function shortcuts() {
+                const elem = parent.querySelector("#global_filters");
+                return { elem };
+            }
+
+            function dm_list() {
+                function header() {
+                    function title() {
+                        const elem = parent.querySelector("h4");
+                        return { elem };
+                    }
+
+                    // ANNOYINGLY, the header is not part of the list, so we
+                    // use parent.
+                    const elem = parent.querySelector("#private_messages_section_header");
+                    return { elem, title };
+                }
+
+                const elem = parent.querySelector("#private_messages_list");
+                return { elem, header };
+            }
+
+            function streams_list() {
+                function header() {
+                    function title() {
+                        const elem = lst.querySelector("h4");
+                        return { elem };
+                    }
+
+                    const elem = lst.querySelector("#streams_header");
+                    return { elem, title };
+                }
+
+                const elem = parent.querySelector("#streams_list");
+                const lst = elem;
+                return { elem, header };
+            }
+
+            const elem = app().querySelector("#left-sidebar");
+            const parent = elem;
+            return { elem, shortcuts, dm_list, streams_list };
+        }
+
+        function middle_panel() {
+            function message_list() {
+                const elem = parent.querySelector("#zfilt");
+                
+                return { elem };
+            }
+
+            function bottom_whitespace() {
+                const elem = parent.querySelector("#bottom_whitespace");
             
+                return { elem };
+            }
+
+            function compose_box() {
+                const elem = parent.querySelector("#compose-content");
+
+                return { elem };
+            }
+
+            const elem = app().querySelector(".column-middle-inner");
+
+            const parent = elem;
+            return { elem, message_list, bottom_whitespace, compose_box };
+        }
+
+        function right_sidebar() {
+            const elem = app().querySelector("#right-sidebar");
             return { elem };
         }
 
-        function bottom_whitespace() {
-            const elem = parent.querySelector("#bottom_whitespace");
-        
-            return { elem };
+        return { left_sidebar, middle_panel, right_sidebar };
+    }
+
+    function tamper() {
+        function style(elem, f, v) {
+            elem.style[f] = v;
         }
 
-        function compose_box() {
-            const elem = parent.querySelector("#compose-content");
+        const { logo, search_bar } = get_header();
+        style(logo().elem, "background", "khaki");
+        style(search_bar().elem, "background", "darkseagreen");
 
-            return { elem };
-        }
+        const { left_sidebar, middle_panel, right_sidebar } = get_app();
 
-        const elem = app().querySelector(".column-middle-inner");
+        style(left_sidebar().shortcuts().elem, "background", "blanchedalmond");
 
-        const parent = elem;
-        return { elem, message_list, bottom_whitespace, compose_box };
+        style(left_sidebar().dm_list().header().elem, "background", "cadetblue");
+        style(left_sidebar().dm_list().header().title().elem, "color", "red");
+        style(left_sidebar().dm_list().elem, "background", "khaki");
+
+        style(left_sidebar().streams_list().header().elem, "background", "cadetblue");
+        style(left_sidebar().streams_list().header().title().elem, "color", "red");
+        style(left_sidebar().streams_list().elem, "background", "khaki");
+
+        style(middle_panel().elem, "background", "khaki");
+        style(middle_panel().message_list().elem, "background", "cadetblue");
+        style(middle_panel().bottom_whitespace().elem, "background", "deepskyblue");
+        style(middle_panel().compose_box().elem, "background", "cadetblue");
+
+        style(right_sidebar().elem, "background", "darkseagreen");
     }
 
-    function right_sidebar() {
-        const elem = app().querySelector("#right-sidebar");
-        return { elem };
-    }
-
-    return { left_sidebar, middle_panel, right_sidebar };
-}
-
-function tamper() {
-    function style(elem, f, v) {
-        elem.style[f] = v;
-    }
-
-    const { logo, search_bar } = get_header();
-    style(logo().elem, "background", "khaki");
-    style(search_bar().elem, "background", "darkseagreen");
-
-    const { left_sidebar, middle_panel, right_sidebar } = get_app();
-
-    style(left_sidebar().shortcuts().elem, "background", "blanchedalmond");
-
-    style(left_sidebar().dm_list().header().elem, "background", "cadetblue");
-    style(left_sidebar().dm_list().header().title().elem, "color", "red");
-    style(left_sidebar().dm_list().elem, "background", "khaki");
-
-    style(left_sidebar().streams_list().header().elem, "background", "cadetblue");
-    style(left_sidebar().streams_list().header().title().elem, "color", "red");
-    style(left_sidebar().streams_list().elem, "background", "khaki");
-
-    style(middle_panel().elem, "background", "khaki");
-    style(middle_panel().message_list().elem, "background", "cadetblue");
-    style(middle_panel().bottom_whitespace().elem, "background", "deepskyblue");
-    style(middle_panel().compose_box().elem, "background", "cadetblue");
-
-    style(right_sidebar().elem, "background", "darkseagreen");
-}
-
-tamper();
+    setTimeout(tamper, 2000);
+})();
