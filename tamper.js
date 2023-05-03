@@ -60,6 +60,12 @@ function get_app() {
     }
 
     function middle_panel() {
+        function message_list() {
+            const elem = parent.querySelector("#zfilt");
+            
+            return { elem };
+        }
+
         function compose_box() {
             const elem = parent.querySelector("#compose-content");
 
@@ -69,7 +75,7 @@ function get_app() {
         const elem = app().querySelector(".column-middle-inner");
 
         const parent = elem;
-        return { elem, compose_box };
+        return { elem, message_list, compose_box };
     }
 
     function right_sidebar() {
@@ -100,6 +106,7 @@ function tamper() {
     style(left_sidebar().streams_list().elem, "background", "khaki");
 
     style(middle_panel().elem, "background", "khaki");
+    style(middle_panel().message_list().elem, "background", "cadetblue");
     style(middle_panel().compose_box().elem, "background", "cadetblue");
 
     style(right_sidebar().elem, "background", "darkseagreen");

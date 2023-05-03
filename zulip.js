@@ -113,6 +113,14 @@ function build_app() {
     }
 
     function build_middle_panel() {
+        function build_message_list() {
+            const message_list = document.createElement("div");
+            message_list.id = "zfilt";
+            message_list.innerText = "MESSAGE LIST";
+            style_sub_panel(message_list);
+            middle_panel.append(message_list);
+        }
+
         function build_compose_box() {
             const compose_box = document.createElement("div");
             compose_box.id = "compose-content";
@@ -127,6 +135,7 @@ function build_app() {
         style_panel(middle_panel);
         app.append(middle_panel);
 
+        build_message_list();
         build_compose_box();
     }
 
