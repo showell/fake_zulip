@@ -78,7 +78,7 @@ function build_app() {
         function build_streams_list({ parent }) {
             function build_streams_list_header({streams_list}) {
                 const elem = document.createElement("div");
-                elem.id = "stream_header";
+                elem.id = "streams_header";
                 elem.innerText = "STREAMS LIST";
                 streams_list.prepend(elem);
             }

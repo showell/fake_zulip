@@ -38,7 +38,7 @@ function get_app() {
 
         function streams_list() {
             function header() {
-                const elem = parent.querySelector("#stream_header");
+                const elem = parent.querySelector("#streams_header");
                 return { elem };
             }
 
