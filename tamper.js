@@ -9,8 +9,8 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
-    'use strict';
+(function () {
+    "use strict";
 
     function get_header() {
         function header() {
@@ -54,7 +54,9 @@
 
                     // ANNOYINGLY, the header is not part of the list, so we
                     // use parent.
-                    const elem = parent.querySelector("#private_messages_section_header");
+                    const elem = parent.querySelector(
+                        "#private_messages_section_header"
+                    );
                     return { elem, title };
                 }
 
@@ -86,13 +88,13 @@
         function middle_panel() {
             function message_list() {
                 const elem = parent.querySelector("#zfilt");
-                
+
                 return { elem };
             }
 
             function bottom_whitespace() {
                 const elem = parent.querySelector("#bottom_whitespace");
-            
+
                 return { elem };
             }
 
@@ -129,17 +131,33 @@
 
         style(left_sidebar().shortcuts().elem, "background", "blanchedalmond");
 
-        style(left_sidebar().dm_list().header().elem, "background", "cadetblue");
+        style(
+            left_sidebar().dm_list().header().elem,
+            "background",
+            "cadetblue"
+        );
         style(left_sidebar().dm_list().header().title().elem, "color", "red");
         style(left_sidebar().dm_list().elem, "background", "khaki");
 
-        style(left_sidebar().streams_list().header().elem, "background", "cadetblue");
-        style(left_sidebar().streams_list().header().title().elem, "color", "red");
+        style(
+            left_sidebar().streams_list().header().elem,
+            "background",
+            "cadetblue"
+        );
+        style(
+            left_sidebar().streams_list().header().title().elem,
+            "color",
+            "red"
+        );
         style(left_sidebar().streams_list().elem, "background", "khaki");
 
         style(middle_panel().elem, "background", "khaki");
         style(middle_panel().message_list().elem, "background", "cadetblue");
-        style(middle_panel().bottom_whitespace().elem, "background", "deepskyblue");
+        style(
+            middle_panel().bottom_whitespace().elem,
+            "background",
+            "deepskyblue"
+        );
         style(middle_panel().compose_box().elem, "background", "cadetblue");
 
         style(right_sidebar().elem, "background", "darkseagreen");

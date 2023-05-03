@@ -67,7 +67,7 @@ function build_app() {
         }
 
         function build_dm_list({ parent }) {
-            function build_dm_list_header({dm_list}) {
+            function build_dm_list_header({ dm_list }) {
                 const elem = document.createElement("div");
                 elem.id = "private_messages_section_header";
 
@@ -83,12 +83,12 @@ function build_app() {
             style(elem, "height", "35%");
             style_sub_panel(elem);
 
-            build_dm_list_header({dm_list: elem});
+            build_dm_list_header({ dm_list: elem });
             parent.append(elem);
         }
 
         function build_streams_list({ parent }) {
-            function build_streams_list_header({streams_list}) {
+            function build_streams_list_header({ streams_list }) {
                 const elem = document.createElement("div");
                 elem.id = "streams_header";
 
@@ -105,7 +105,7 @@ function build_app() {
             style(elem, "height", "35%");
             style_sub_panel(elem);
 
-            build_streams_list_header({streams_list: elem});
+            build_streams_list_header({ streams_list: elem });
             parent.append(elem);
         }
 
@@ -135,7 +135,7 @@ function build_app() {
             ws.id = "bottom_whitespace";
             style(ws, "height", "30%");
             style_sub_panel(ws);
-            middle_panel.append(ws); 
+            middle_panel.append(ws);
         }
 
         function build_compose_box() {
