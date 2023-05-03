@@ -125,6 +125,7 @@ function build_app() {
             const message_list = document.createElement("div");
             message_list.id = "zfilt";
             message_list.innerText = "MESSAGE LIST";
+            style(message_list, "height", "50%");
             style_sub_panel(message_list);
             middle_panel.append(message_list);
         }
