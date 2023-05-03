@@ -158,11 +158,21 @@ function build_app() {
     }
 
     function build_right_sidebar() {
+        function build_shortcuts() {
+            const elem = document.createElement("div");
+            elem.className = "right-sidebar-shortcuts";
+            elem.innerText = "keyboard icon";
+            style_sub_panel(elem);
+            right_sidebar.append(elem);
+        }
+
         const right_sidebar = document.createElement("div");
         right_sidebar.id = "right-sidebar";
         right_sidebar.title = "RIGHT SIDEBAR";
         style_panel(right_sidebar);
         app.append(right_sidebar);
+
+        build_shortcuts();
     }
 
     build_left_sidebar();

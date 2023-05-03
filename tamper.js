@@ -111,8 +111,14 @@
         }
 
         function right_sidebar() {
+            function shortcuts() {
+                const elem = app().querySelector(".right-sidebar-shortcuts");
+
+                return { elem };
+            }
+
             const elem = app().querySelector("#right-sidebar");
-            return { elem };
+            return { elem, shortcuts };
         }
 
         return { left_sidebar, middle_panel, right_sidebar };
@@ -161,6 +167,7 @@
         style(middle_panel().compose_box().elem, "background", "cadetblue");
 
         style(right_sidebar().elem, "background", "darkseagreen");
+        style(right_sidebar().shortcuts().elem, "background", "cadetblue");
     }
 
     setTimeout(tamper, 2000);
