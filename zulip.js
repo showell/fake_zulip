@@ -66,11 +66,20 @@ function build_app() {
             parent.append(elem);
         }
 
+        function build_dm_list({ parent }) {
+            const elem = document.createElement("div");
+            elem.className = "private_messages_container";
+            elem.innerText = "dm list";
+            style(elem, "height", "35%");
+            style_sub_panel(elem);
+            parent.append(elem);
+        }
+
         function build_streams_list({ parent }) {
             const elem = document.createElement("div");
             elem.id = "streams_list";
             elem.innerText = "streams list";
-            style(elem, "height", "75%");
+            style(elem, "height", "35%");
             style_sub_panel(elem);
             parent.append(elem);
         }
@@ -82,6 +91,7 @@ function build_app() {
         app.append(elem);
 
         build_shortcuts({ parent: elem });
+        build_dm_list({ parent: elem });
         build_streams_list({ parent: elem });
     }
 

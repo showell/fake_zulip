@@ -11,7 +11,6 @@ function get_header() {
 
     function search_bar() {
         const elem = header().querySelector(".top-navbar-container");
-        console.info(elem);
 
         return { elem };
     }
@@ -32,6 +31,11 @@ function get_app() {
             return { elem };
         }
 
+        function dm_list() {
+            const elem = parent.querySelector(".private_messages_container");
+            return { elem };
+        }
+
         function streams_list() {
             const elem = parent.querySelector("#streams_list");
             return { elem };
@@ -39,7 +43,7 @@ function get_app() {
 
         const elem = app().querySelector("#left-sidebar");
         const parent = elem;
-        return { elem, shortcuts, streams_list };
+        return { elem, shortcuts, dm_list, streams_list };
     }
 
     function middle_panel() {
@@ -61,14 +65,13 @@ function tamper() {
     }
 
     const { logo, search_bar } = get_header();
-    console.info("HERE after get_header");
     style(logo().elem, "background", "khaki");
     style(search_bar().elem, "background", "darkseagreen");
 
     const { left_sidebar, middle_panel, right_sidebar } = get_app();
 
-    style(left_sidebar().elem, "background", "aliceblue");
     style(left_sidebar().shortcuts().elem, "background", "cadetblue");
+    style(left_sidebar().dm_list().elem, "background", "blanchedalmond");
     style(left_sidebar().streams_list().elem, "background", "blanchedalmond");
 
     style(middle_panel().elem, "background", "khaki");
