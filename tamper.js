@@ -32,8 +32,14 @@ function get_app() {
         }
 
         function dm_list() {
+            function header() {
+                const elem = lst.querySelector("#private_messages_section_header");
+                return { elem };
+            }
+
             const elem = parent.querySelector("#private_messages_list");
-            return { elem };
+            const lst = elem;
+            return { elem, header };
         }
 
         function streams_list() {
@@ -84,13 +90,16 @@ function tamper() {
 
     const { left_sidebar, middle_panel, right_sidebar } = get_app();
 
-    style(left_sidebar().shortcuts().elem, "background", "cadetblue");
-    style(left_sidebar().dm_list().elem, "background", "blanchedalmond");
+    style(left_sidebar().shortcuts().elem, "background", "blanchedalmond");
+
+    style(left_sidebar().dm_list().header().elem, "background", "cadetblue");
+    style(left_sidebar().dm_list().elem, "background", "khaki");
+
     style(left_sidebar().streams_list().header().elem, "background", "cadetblue");
-    style(left_sidebar().streams_list().elem, "background", "blanchedalmond");
+    style(left_sidebar().streams_list().elem, "background", "khaki");
 
     style(middle_panel().elem, "background", "khaki");
-    style(middle_panel().compose_box().elem, "background", "darkseagreen");
+    style(middle_panel().compose_box().elem, "background", "cadetblue");
 
     style(right_sidebar().elem, "background", "darkseagreen");
 }

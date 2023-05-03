@@ -67,11 +67,19 @@ function build_app() {
         }
 
         function build_dm_list({ parent }) {
+            function build_dm_list_header({dm_list}) {
+                const elem = document.createElement("div");
+                elem.id = "private_messages_section_header";
+                elem.innerText = "DIRECT MESSAGES";
+                dm_list.prepend(elem);
+            }
             const elem = document.createElement("div");
             elem.id = "private_messages_list";
             elem.innerText = "dm list";
             style(elem, "height", "35%");
             style_sub_panel(elem);
+
+            build_dm_list_header({dm_list: elem});
             parent.append(elem);
         }
 
