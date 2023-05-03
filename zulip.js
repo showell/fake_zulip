@@ -130,6 +130,14 @@ function build_app() {
             middle_panel.append(message_list);
         }
 
+        function build_bottom_whitespace() {
+            const ws = document.createElement("div");
+            ws.id = "bottom_whitespace";
+            style(ws, "height", "30%");
+            style_sub_panel(ws);
+            middle_panel.append(ws); 
+        }
+
         function build_compose_box() {
             const compose_box = document.createElement("div");
             compose_box.id = "compose-content";
@@ -145,6 +153,7 @@ function build_app() {
         app.append(middle_panel);
 
         build_message_list();
+        build_bottom_whitespace();
         build_compose_box();
     }
 

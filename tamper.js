@@ -76,6 +76,12 @@ function get_app() {
             return { elem };
         }
 
+        function bottom_whitespace() {
+            const elem = parent.querySelector("#bottom_whitespace");
+        
+            return { elem };
+        }
+
         function compose_box() {
             const elem = parent.querySelector("#compose-content");
 
@@ -85,7 +91,7 @@ function get_app() {
         const elem = app().querySelector(".column-middle-inner");
 
         const parent = elem;
-        return { elem, message_list, compose_box };
+        return { elem, message_list, bottom_whitespace, compose_box };
     }
 
     function right_sidebar() {
@@ -119,6 +125,7 @@ function tamper() {
 
     style(middle_panel().elem, "background", "khaki");
     style(middle_panel().message_list().elem, "background", "cadetblue");
+    style(middle_panel().bottom_whitespace().elem, "background", "deepskyblue");
     style(middle_panel().compose_box().elem, "background", "cadetblue");
 
     style(right_sidebar().elem, "background", "darkseagreen");
