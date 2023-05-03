@@ -33,7 +33,8 @@ function get_app() {
 
         function dm_list() {
             function header() {
-                const elem = lst.querySelector("#private_messages_section_header");
+                // ANNOYINGLY, the header is not part of the list.
+                const elem = parent.querySelector("#private_messages_section_header");
                 return { elem };
             }
 
