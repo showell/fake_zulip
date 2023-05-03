@@ -37,8 +37,14 @@ function get_app() {
         }
 
         function streams_list() {
+            function header() {
+                const elem = parent.querySelector("#stream_header");
+                return { elem };
+            }
+
             const elem = parent.querySelector("#streams_list");
-            return { elem };
+            const lst = elem;
+            return { elem, header };
         }
 
         const elem = app().querySelector("#left-sidebar");
@@ -72,6 +78,7 @@ function tamper() {
 
     style(left_sidebar().shortcuts().elem, "background", "cadetblue");
     style(left_sidebar().dm_list().elem, "background", "blanchedalmond");
+    style(left_sidebar().streams_list().header().elem, "background", "cadetblue");
     style(left_sidebar().streams_list().elem, "background", "blanchedalmond");
 
     style(middle_panel().elem, "background", "khaki");
